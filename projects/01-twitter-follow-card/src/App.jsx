@@ -18,8 +18,8 @@ const users = [
     }
 ]
 
-export function App () {
-    const messi = { userName: 'leomessi', initialIsFollowing: true}
+export function App() {
+    const messi = { userName: 'leomessi', initialIsFollowing: true }
 
     return (
         <section className='App'>
@@ -39,7 +39,7 @@ export function App () {
             {
                 users.map(({ userName, name, isFollowing }) => {
                     return (
-                        <TwitterFollowCard 
+                        <TwitterFollowCard
                             key={userName}
                             userName={userName}
                             initialIsFollowing={isFollowing}
