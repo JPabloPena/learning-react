@@ -3,6 +3,7 @@ export const WinnerModal = ({ winner, resetGame }) => {
   if (winner === null) return null
 
   const winnerText = winner === false ? 'Draw' : 'Win:'
+  const winnerDisplay = winner === false ? 'draw' : 'win'
 
   return (
     <section className='winner'>
@@ -11,7 +12,7 @@ export const WinnerModal = ({ winner, resetGame }) => {
           {winnerText}
         </h2>
 
-        <header className='win'>
+        <header className={winnerDisplay}>
           {winner && <Square>{winner}</Square>}
         </header>
 

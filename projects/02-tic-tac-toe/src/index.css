@@ -126,6 +126,10 @@ button {
   gap: 15px;
 }
 
+.winner .draw {
+  display: none;
+}
+
 .square {
   width: 100px;
   height: 100px;
