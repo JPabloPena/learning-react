@@ -3,29 +3,32 @@ import { useEffect, useState } from 'react'
 function FollowMouse () {
   const [enabled, setEnabled] = useState(false)
   const [position, setPosition] = useState({ x: 0, y: 0 })
+  const [circleVisibility, setCircleVisibility] = useState('none')
 
   useEffect(() => {
     console.log('Effect ', { enabled })
 
     const handleMove = (event) => {
       const { clientX, clientY } = event
-      // console.log({ clientX, clientY })
       setPosition({ x: clientX, y: clientY })
     }
 
     if (enabled) {
       window.addEventListener('pointermove', handleMove)
+      setCircleVisibility('block')
     }
 
     // clean suscription
     return () => {
       console.log('clean up')
       window.removeEventListener('pointermove', handleMove)
+      setCircleVisibility('none')
     }
   }, [enabled])
   return (
     <>
       <div style={{
+        display: `${circleVisibility}`,
         position: 'absolute',
         backgroundColor: 'rgba(0, 0, 0, 0.5)',
         borderRadius: '50%',
